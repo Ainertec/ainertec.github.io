@@ -2,6 +2,16 @@ import React, { useEffect, useState } from "react";
 
 function App() {
 
+  const handleAdmin = () => {
+    const data = window.prompt("Digite sua credencial!");
+    if(data == ""){
+      window.alert("Preencha a credencial!")
+      handleAdmin();
+    }else if(data != null){
+
+    }
+  }
+
   return (
     <div className="flex flex-col items-center">
       <div className="flex justify-center items-start">
@@ -20,7 +30,7 @@ function App() {
         <p className="text-white text-sm">
           Histórico dos primeiros sistemas da empresa.
           <br/>
-          <a className="text-blue-300" href="#">Link para histórico</a>
+          <a className="text-blue-300" href="https://github.com/Ainertec/softwaresextras">Link para histórico</a>
         </p>
       </div>
       <div className="flex justify-center mt-2 gap-4 w-6/6 text-center items-center bg-white/10 p-4 mr-0 sm:mr-64 sm:w-3/6">
@@ -28,7 +38,7 @@ function App() {
         <p className="text-white text-sm">
           Conheça as aplicações apresentadas em nosso canal do Facebook.
           <br/>
-          <a className="text-blue-300" href="#">Link para página</a>
+          <a className="text-blue-300" href="https://www.facebook.com/ainertec.ainertec.9">Link para página</a>
         </p>
       </div>
       <div className="flex justify-center mt-2 gap-4 w-6/6 text-center items-center bg-white/10 p-4 ml-0 sm:ml-64 sm:w-3/6">
@@ -36,12 +46,12 @@ function App() {
         <p className="text-white text-sm">
           Conheça um pouco mais sobre o fundador: 
           <br/>
-          <a className="text-blue-300" href="#">Aldair Klein</a>
+          <a className="text-blue-300" href="https://br.linkedin.com/in/aldair-camargo-duarte-klein-a2bb751a4">Aldair Klein</a>
         </p>
         <p className="text-white text-sm">
           Conheça um pouco mais sobre o fundador:
           <br/>
-          <a className="text-blue-300" href="#">Cleiton Baloneker</a>
+          <a className="text-blue-300" href="https://br.linkedin.com/in/cleiton-baloneker-a759a0194?trk=public_profile_browsemap&original_referer=https%3A%2F%2Fwww.google.com%2F">Cleiton Baloneker</a>
         </p>
         <img className="w-1/6" src="https://lh3.googleusercontent.com/pw/AM-JKLWpVqHS69C9Ac6zZvajN2D6-lffTN7QR2v9-_oRptJCUpdVQ8L9mrlXNJpfRELlBwKsAultHdd9aNxEODT9-_3rfjnOxqFwXGmZWXXpOxyXqrcMbYuaOdm0za2zQbakyTrgTe1LBmhoAJgCXu3O4tWp=w417-h579-no" />
       </div>
@@ -62,7 +72,7 @@ function App() {
         <p className="text-white text-sm">
           Área do adminitrador, por trás dessa página que a mágica acontece.
           <br/>
-          <a className="text-blue-300" href="#">Área do administrador</a>
+          <a className="text-blue-300" href="#" onClick={() => {handleAdmin()}}>Área do administrador</a>
         </p>
       </div>
       <div className="flex justify-center mt-4 gap-4 w-6/6 text-center items-center bg-white/10 p-4 ml-0 sm:ml-64 sm:w-3/6">
