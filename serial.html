@@ -1,6 +1,8 @@
 <html>
     <body>
-        [
+        <div id="serial"></div>
+    <script>
+        const data = [
             {
                 "name":"MC Donuts",
                 "key":"",
@@ -37,6 +39,10 @@
                 "active":"false",
                 "pointer":1       
             }
-   ]
+        ]
+
+        document.getElementById('serial').innerHTML = data;
+
+    </script>
     </body>
 </html>
