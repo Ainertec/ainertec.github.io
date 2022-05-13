@@ -13,9 +13,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: "14.x"
-      - name: Init JSON server
-        run: |
-          npm run server
       ##- name: Build web-app
       ##run: |
       ##npm ci
