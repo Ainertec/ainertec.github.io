@@ -1,19 +1,38 @@
-{
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
+[
+  {
+      "name":"MC Donuts",
+      "key":"",
+      "active":"false",
+      "pointer":1       
+  },
+  {
+      "name":"Hotel Lumiar",
+      "key":"",
+      "active":"true",
+      "pointer":1       
+  },
+  {
+      "name":"Kalango Car",
+      "key":"2d088de0",
+      "active":"true",
+      "pointer":1       
+  },
+  {
+      "name":"Terabyte Tiago",
+      "key":"hdf25g68",
+      "active":"true",
+      "pointer":1       
+  },
+  {
+      "name":"If Café",
+      "key":"24b2a445",
+      "active":"true",
+      "pointer":1       
+  },
+  {
+      "name":"Bar Canas",
+      "key":"32e2889f",
+      "active":"false",
+      "pointer":1       
   }
-}
+]
