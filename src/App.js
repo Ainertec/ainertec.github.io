@@ -1,4 +1,10 @@
+import { useState } from "react";
+
 export default function App() {
+  const [openPix, setOpenPix] = useState(false);
+  const pixKey = "9014d57b-cd74-4ee8-9aca-2dfb8b1b71a7";
+  const qrCodeImg = "https://lh3.googleusercontent.com/pw/AP1GczMtVlYoaFwyT-QAGOEtbJRQLjOKVep7e-uS_QYPhbpxfwkpngxcqmgdRYCw-B1OjiKWFlDT_WvQ8A3ZXnQDYiBdk2CfcahAsemXHkO62jnhXULBX6YpV9B2gUV2eaqgeUZet7DmfRvcWerbfq3OD5ba=w427-h574-s-no";
+
   const sistemas = [
     {
       titulo: "PDV e Vendas",
@@ -27,7 +33,7 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#050B1B] text-white">
+    <div className="min-h-screen bg-[#050B1B] text-white overflow-x-hidden">
 
       {/* NAVBAR */}
       <nav className="sticky top-0 z-50 backdrop-blur bg-[#050B1B]/90 border-b border-cyan-500/10">
@@ -55,6 +61,13 @@ export default function App() {
             <a href="#sistemas" className="hover:text-cyan-400">
               Sistemas
             </a>
+
+            <button
+              onClick={() => setOpenPix(true)}
+              className="hover:text-cyan-400"
+            >
+              2ª Via Pagamento PIX
+            </button>
 
             <a href="#sobre" className="hover:text-cyan-400">
               Sobre
@@ -385,6 +398,135 @@ export default function App() {
         </div>
 
       </footer>
+
+      {openPix && (
+        <div className="fixed inset-0 z-[999] flex items-center justify-center p-4">
+
+          {/* overlay */}
+          <div
+            className="absolute inset-0 bg-black/70 backdrop-blur-md"
+            onClick={() => setOpenPix(false)}
+          />
+
+          {/* modal */}
+          <div className="
+            relative
+            w-full
+            max-w-5xl
+            max-h-[90vh]
+            overflow-y-auto
+            bg-[#0b1224]
+            border border-cyan-500/20
+            rounded-3xl
+            shadow-[0_0_40px_rgba(34,211,238,0.15)]
+            overflow-hidden
+          ">
+
+            {/* layout responsivo */}
+            <div className="flex flex-col lg:flex-row">
+
+              {/* ESQUERDA */}
+              <div className="w-full lg:w-1/2 p-6 sm:p-8">
+
+                <h2 className="text-2xl sm:text-3xl font-bold text-cyan-400 mb-6">
+                  2ª Via Pagamento PIX
+                </h2>
+
+                <p className="text-gray-300 mb-2 text-sm">
+                  Chave PIX (aleatória):
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-2 mb-6">
+
+                  <input
+                    readOnly
+                    value={pixKey}
+                    className="
+                      flex-1
+                      bg-black/40
+                      border border-cyan-500/20
+                      rounded-lg
+                      px-3 py-3
+                      text-sm text-gray-200
+                      overflow-x-auto
+                    "
+                  />
+
+                  <button
+                    onClick={() => navigator.clipboard.writeText(pixKey)}
+                    className="
+                      bg-cyan-500 hover:bg-cyan-400
+                      text-black font-bold
+                      px-5 py-3
+                      rounded-lg
+                      w-full sm:w-auto
+                    "
+                  >
+                    Copiar
+                  </button>
+                </div>
+
+                <div className="bg-cyan-500/5 border border-cyan-500/10 rounded-xl p-4 text-sm">
+
+                  <p className="text-gray-300">
+                    Após o pagamento, envie o comprovante para:
+                  </p>
+
+                  <p className="text-cyan-300 font-semibold mt-2 break-all">
+                    contato.ainertec@gmail.com
+                  </p>
+
+                  <p className="text-gray-400 mt-3">
+                    Assunto:
+                  </p>
+
+                  <p className="text-white font-semibold">
+                    FATURAMENTO - Nome do Cliente
+                  </p>
+
+                </div>
+
+                <button
+                  onClick={() => setOpenPix(false)}
+                  className="
+                    mt-6 w-full
+                    bg-white/10 hover:bg-white/20
+                    py-3 rounded-xl
+                    transition
+                  "
+                >
+                  Fechar
+                </button>
+
+              </div>
+
+              {/* DIREITA (QR CODE) */}
+              <div className="
+                w-full lg:w-1/2
+                flex items-center justify-center
+                bg-white
+                overflow-hidden
+              ">
+
+                <img
+                  src={qrCodeImg}
+                  alt="QR Code PIX"
+                  className="
+                    w-full
+                    max-w-[280px]
+                    sm:max-w-[320px]
+                    md:max-w-[360px]
+                    max-h-[400px]
+                    object-contain
+                  "
+                />
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );
